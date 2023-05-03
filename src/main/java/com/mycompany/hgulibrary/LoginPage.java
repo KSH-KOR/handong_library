@@ -1,4 +1,7 @@
 
+import com.mycompany.hgulibrary.Admin;
+import com.mycompany.hgulibrary.User;
+import com.mycompany.hgulibrary.UserParent;
 import javax.swing.JOptionPane;
 
 /*
@@ -157,19 +160,29 @@ public class LoginPage extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {                                         
         // TODO add your handling code here:
         
+        UserParent[] users = new UserParent[2];
+        users[1] = new User();
+        users[0] = new Admin();
+        
         String us = usertyping.getText();
         String ps = passwordtyping.getText();
         
-        if(us.equals("admin") && ps.equals("admin")) {
-            MenuPage obj = new MenuPage();
+        if(us.equals(users[0].getUserid()) && ps.equals(users[0].getPassword())) {
+            MenuPage obj = new MenuPage(); //change to admin menu page
             obj.setVisible(true);
             dispose();
         }
-        else 
+        else if(us.equals(users[1].getUserid()) && ps.equals(users[1].getPassword())){
+            System.out.println("user");
+            MenuPage obj = new MenuPage(); 
+            obj.setVisible(true);
+            dispose();
+        }
+        else
         {
             JOptionPane.showMessageDialog(rootPane, "Your Username or password is incorrect");
-            
-        }
+        }            
+       
     }                                        
 
     private void TextFieldSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextFieldSearchActionPerformed
@@ -215,7 +228,7 @@ public class LoginPage extends javax.swing.JFrame {
         });
     }
 
-    // Variables declaration - do not modify//GEN-BEGIN:variables
+    // Variables declaration - do not modify                     
     private javax.swing.JButton ButtonSearch;
     private javax.swing.JLabel Name;
     private javax.swing.JTextField TextFieldSearch;
