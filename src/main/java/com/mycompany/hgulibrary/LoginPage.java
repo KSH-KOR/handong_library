@@ -1,17 +1,19 @@
+
+import javax.swing.JOptionPane;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package com.mycompany.hgulibrary;
 
 /**
  *
- * @author shinhookim
+ * @author vldrj
  */
 public class LoginPage extends javax.swing.JFrame {
 
     /**
-     * Creates new form LoginPage1
+     * Creates new form LoginPage
      */
     public LoginPage() {
         initComponents();
@@ -26,7 +28,7 @@ public class LoginPage extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        loginText1 = new javax.swing.JLabel();
+        loginText = new javax.swing.JLabel();
         Name = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         username = new javax.swing.JLabel();
@@ -34,13 +36,14 @@ public class LoginPage extends javax.swing.JFrame {
         usertyping = new javax.swing.JTextField();
         passwordtyping = new javax.swing.JPasswordField();
         jButton1 = new javax.swing.JButton();
-        TextFieldSearch = new javax.swing.JTextField();
         ButtonSearch = new javax.swing.JButton();
+        loginText1 = new javax.swing.JLabel();
+
+        loginText.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        loginText.setText("Login");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        loginText1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        loginText1.setText("Login");
+        setTitle("Login Page");
 
         Name.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
         Name.setForeground(new java.awt.Color(102, 153, 255));
@@ -66,12 +69,6 @@ public class LoginPage extends javax.swing.JFrame {
             }
         });
 
-        TextFieldSearch.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TextFieldSearchActionPerformed(evt);
-            }
-        });
-
         ButtonSearch.setText("Search");
         ButtonSearch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -79,40 +76,42 @@ public class LoginPage extends javax.swing.JFrame {
             }
         });
 
+        loginText1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        loginText1.setText("Login");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(133, Short.MAX_VALUE)
+                .addContainerGap(130, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addGap(91, 91, 91))
-                            .addComponent(Name, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(104, 104, 104))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(username)
-                                    .addComponent(password))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(usertyping)
-                                    .addComponent(passwordtyping, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(TextFieldSearch)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(ButtonSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(175, 175, 175))))
+                        .addComponent(jLabel2)
+                        .addGap(91, 91, 91))
+                    .addComponent(Name, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(104, 104, 104))
             .addGroup(layout.createSequentialGroup()
-                .addGap(314, 314, 314)
-                .addComponent(loginText1)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(179, 179, 179)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(ButtonSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(username)
+                                .addComponent(password))
+                            .addGap(18, 18, 18)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(usertyping)
+                                .addComponent(passwordtyping, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(131, 131, 131)
+                        .addComponent(loginText1)
+                        .addGap(150, 150, 150)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -121,11 +120,7 @@ public class LoginPage extends javax.swing.JFrame {
                 .addComponent(Name)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel2)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(TextFieldSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ButtonSearch))
-                .addGap(35, 35, 35)
+                .addGap(31, 31, 31)
                 .addComponent(loginText1)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -136,8 +131,10 @@ public class LoginPage extends javax.swing.JFrame {
                     .addComponent(password)
                     .addComponent(passwordtyping, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jButton1)
-                .addContainerGap(100, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1)
+                    .addComponent(ButtonSearch))
+                .addContainerGap(125, Short.MAX_VALUE))
         );
 
         pack();
@@ -149,14 +146,35 @@ public class LoginPage extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        
+        String us = usertyping.getText();
+        String ps = passwordtyping.getText();
+        
+        LoginInfo info = new LoginInfo();
+        
+        if(us.equals("admin") && ps.equals("admin")) {
+            MenuPage obj = new MenuPage();
+            info.setisLogin(true);
+            obj.setVisible(true);
+            dispose();
+        } else if(us.equals("hyunuk") && ps.equals("rlagusdnr33")) {
+            MenuPage obj = new MenuPage();
+            info.setisLogin(true);
+            obj.setVisible(true);
+            dispose();
+        }
+        else 
+        {
+            JOptionPane.showMessageDialog(rootPane, "Your Username or password is incorrect");
+            
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void TextFieldSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextFieldSearchActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TextFieldSearchActionPerformed
 
     private void ButtonSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonSearchActionPerformed
         // TODO add your handling code here:
+        SearchPage sp = new SearchPage();
+        sp.setVisible(true);
+        dispose();
     }//GEN-LAST:event_ButtonSearchActionPerformed
 
     /**
@@ -185,7 +203,6 @@ public class LoginPage extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(LoginPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -198,9 +215,9 @@ public class LoginPage extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ButtonSearch;
     private javax.swing.JLabel Name;
-    private javax.swing.JTextField TextFieldSearch;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel loginText;
     private javax.swing.JLabel loginText1;
     private javax.swing.JLabel password;
     private javax.swing.JPasswordField passwordtyping;
