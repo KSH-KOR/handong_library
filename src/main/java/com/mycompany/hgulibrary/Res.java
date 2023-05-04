@@ -44,4 +44,8 @@ public class Res {
      public Stream<BookInfo> searchBookByTitle(String title){
         return bookList.stream().filter(bookInfo -> bookInfo.getBookName().equals(title));
      }
+     
+     public Boolean hasBookInfo(String title){
+         return !searchBookByTitle(title).toList().isEmpty();
+     }
 }
