@@ -18,19 +18,19 @@ class LoginInfo {
         return userId;
     }
     
-    public void setisLogin(boolean info){
+    static public void setisLogin(boolean info){
         isLogin = info;
     }
     
-    public boolean getisLogin(){
+    static public boolean getisLogin(){
         return isLogin;
     }
     
-    public void setUsername(String name){
+    static public void setUsername(String name){
         username = name;
     }
     
-    public String getUsername(){
+    static public String getUsername(){
         return username;
     }
 }

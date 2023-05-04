@@ -11,27 +11,27 @@ import java.util.UUID;
  * @author soundligt
  */
 public class UserParent {
-    public UUID uuid;
 
     public String username;
     public String email;
-    public String userid;
+    public String userId;
     public String password;
-
+    
+    public UserParent(String[] userInfo){
+        this.email = userInfo[0];
+        this.username = userInfo[1];
+        this.userId = userInfo[2];
+        this.password = userInfo[3];
+    }
     
     public UserParent(String email, String username, String userid, String password){
-        this.uuid = UUID.randomUUID();
         this.email = email;
         this.username = username;
-        this.userid = userid;
+        this.userId = userid;
         this.password = password;
-
     }
 
 
-    public UUID getUuid() {
-        return uuid;
-    }
     
     public String getUsername() {
         return username;
@@ -50,11 +50,11 @@ public class UserParent {
     }
 
     public String getUserid() {
-        return userid;
+        return userId;
     }
 
     public void setUserid(String userid) {
-        this.userid = userid;
+        this.userId = userid;
     }
 
     public String getPassword() {

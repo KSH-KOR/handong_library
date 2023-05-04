@@ -152,36 +152,18 @@ public class LoginPage extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {                                         
         // TODO add your handling code here:
         
-        UserParent[] users = new UserParent[2];
-        users[1] = new User();
-        users[0] = new Admin();
+        String id = usertyping.getText();
+        String pw = passwordtyping.getText();
         
-        String us = usertyping.getText();
-        String ps = passwordtyping.getText();
+        Boolean didSuccessed = LoginService.getInstance().login(id, pw);
         
-        LoginInfo info = new LoginInfo();
-        
-        if(us.equals("admin") && ps.equals("admin")) {
+        if(didSuccessed){
             MenuPage obj = new MenuPage();
-            info.setisLogin(true);
             obj.setVisible(true);
             dispose();
-        } else if(us.equals("hyunuk") && ps.equals("rlagusdnr33")) {
-            MenuPage obj = new MenuPage();
-            info.setisLogin(true);
-            obj.setVisible(true);
-            dispose();
-        }
-        else if(us.equals(users[1].getUserid()) && ps.equals(users[1].getPassword())){
-            System.out.println("user");
-            MenuPage obj = new MenuPage(); 
-            obj.setVisible(true);
-            dispose();
-        }
-        else
-        {
+        } else{
             JOptionPane.showMessageDialog(rootPane, "Your Username or password is incorrect");
-        }            
+        }       
        
     }                                        
 

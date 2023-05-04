@@ -7,6 +7,7 @@ package com.mycompany.hgulibrary;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map; 
 
 /**
  *
@@ -14,10 +15,16 @@ import java.util.List;
  */
 public class LoginService {
     
+    final private String [][] userInfoDB = {{"admin", "admin@gmail.com", "admin", "admin"}, {"shinhoo kim", "ksh@gmail.com", "shinhoo", "1234"}};
+    
     private static LoginService single_instance = null;
-
+    
+    
     LoginService() {
-        userDB = new ArrayList<HashMap<String, String>>();
+        userDB = new ArrayList<UserParent>();
+        for(String[] userInfo : userInfoDB){
+            userDB.add(new UserParent(userInfo));
+        }
     }
 
     public static synchronized LoginService getInstance() {
@@ -28,15 +35,12 @@ public class LoginService {
         return single_instance;
     }
     
-    final private String idFieldName = "id";
-    final private String pwFieldName = "pw";
-    
-    List<HashMap<String, String>> userDB;
+    final private List<UserParent> userDB;
     
     private String userId = null;
     
     public Boolean doesUserExist(String id, String pw){
-        return userDB.stream().filter(map -> map.get(idFieldName).equals(id) && map.get(pwFieldName).equals(pw)).count() > 0;
+        return userDB.stream().filter(map -> map.getUserid().equals(id) && map.getPassword().equals(pw)).count() > 0;
     }
     
     public Boolean login(String id, String pw){
@@ -54,4 +58,5 @@ public class LoginService {
     public String getUserId(){
         return userId;
     }
+   
 }
