@@ -157,6 +157,7 @@ public class LoginPage extends javax.swing.JFrame {
         // TODO add your handling code here:
     }                                          
 
+<<<<<<< Updated upstream
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {                                         
         // TODO add your handling code here:
         
@@ -184,6 +185,11 @@ public class LoginPage extends javax.swing.JFrame {
         }            
        
     }                                        
+=======
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
+>>>>>>> Stashed changes
 
     private void TextFieldSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextFieldSearchActionPerformed
         // TODO add your handling code here:
