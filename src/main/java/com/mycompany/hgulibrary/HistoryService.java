@@ -6,6 +6,7 @@ package com.mycompany.hgulibrary;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.stream.Stream;
 
@@ -27,8 +28,14 @@ public class HistoryService {
     }
 
     private final Collection<History> historyList;
+    
+    public String addNewHistory(String userId, Book book, Date borrowedDate, int returnDateOffset){
+        History newHistory = new History(null, userId, book, borrowedDate, returnDateOffset);
+        addNewHistory(newHistory);
+        return newHistory.getHistoryId();
+    }
 
-    public void addNewHistory(History newHistory) {
+    private void addNewHistory(History newHistory) {
         historyList.add(newHistory);
     }
 

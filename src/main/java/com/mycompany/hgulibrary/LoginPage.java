@@ -1,5 +1,7 @@
-
+package com.mycompany.hgulibrary;
+import com.mycompany.hgulibrary.LoginInfo;
 import com.mycompany.hgulibrary.Admin;
+import com.mycompany.hgulibrary.MenuPage;
 import com.mycompany.hgulibrary.User;
 import com.mycompany.hgulibrary.UserParent;
 import javax.swing.JOptionPane;
@@ -241,5 +243,5 @@ public class LoginPage extends javax.swing.JFrame {
     private javax.swing.JPasswordField passwordtyping;
     private javax.swing.JLabel username;
     private javax.swing.JTextField usertyping;
-    // End of variables declaration//GEN-END:variables
+    // End of variables declaration                   
 }
