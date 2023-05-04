@@ -1,6 +1,2 @@
-
-target/classes/com/mycompany/hgulibrary/BookDetailPage$1.class
-target/classes/com/mycompany/hgulibrary/BookDetailPage$1.class
-target/classes/com/mycompany/hgulibrary/BookDetailPage$2.class
-*.class
+./target
 *.class

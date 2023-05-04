@@ -6,6 +6,7 @@ package com.mycompany.hgulibrary;
 
 import java.util.ArrayList;
 import java.util.UUID;
+import java.util.stream.Stream;
 
 /**
  *
@@ -38,4 +39,9 @@ public class Res {
             bookList.add(bookInfo);
         }
     }
+    
+    
+     public Stream<BookInfo> searchBookByTitle(String title){
+        return bookList.stream().filter(bookInfo -> bookInfo.getBookName().equals(title));
+     }
 }
