@@ -49,6 +49,9 @@ public class BookInfo{
      public Stream<Book> getBorrowedBookList(){
         return bookList.stream().filter(p -> p.getBookState() == BookState.borrowed);
      }
+     public Boolean isAvailable(){
+         return getAvaiableBookList().count() > 0;
+     }
      public Boolean requestBorrow(){
          List<Book> availableBooks = getAvaiableBookList().toList();
          if(availableBooks.size() < 1){
