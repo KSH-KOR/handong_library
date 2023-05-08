@@ -116,7 +116,15 @@ public class BorrowPage extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+        if(LoginService.getInstance().isLogin() == false){
+            LoginPage lp = new LoginPage();
+            lp.setVisible(true);
+            dispose();
+        } else {
+            MenuPage mp = new MenuPage();
+            mp.setVisible(true);
+            dispose();
+        }        // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed

@@ -4,6 +4,9 @@
  */
 package com.mycompany.hgulibrary;
 
+import java.util.List;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author shinhookim
@@ -15,6 +18,7 @@ public class BorrowBookList extends javax.swing.JFrame {
      */
     public BorrowBookList() {
         initComponents();
+        setHistoryList();
     }
 
     /**
@@ -99,7 +103,16 @@ public class BorrowBookList extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+        if(LoginService.getInstance().isLogin() == false){
+            LoginPage lp = new LoginPage();
+            lp.setVisible(true);
+            dispose();
+        } else {
+            MenuPage mp = new MenuPage();
+            mp.setVisible(true);
+            dispose();
+        }  
+
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
@@ -135,6 +148,18 @@ public class BorrowBookList extends javax.swing.JFrame {
                 new BorrowBookList().setVisible(true);
             }
         });
+        
+    }
+    
+    private void setHistoryList(){
+        String userId = LoginService.getInstance().getUserId();
+        if(userId == null){
+            jList1.setListData(new String[0]);
+            JOptionPane.showMessageDialog(rootPane, "Cannot find login info");
+        } else{
+            List<String> a = HistoryService.getInstance().getHistoriesByUserId(userId).map(history -> (String)history.getBook().getBookInfo().getBookName()).toList();
+            jList1.setListData(a.toArray(new String[a.size()]));
+        }
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
