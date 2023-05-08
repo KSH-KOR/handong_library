@@ -1,5 +1,7 @@
 package com.mycompany.hgulibrary;
 
+import javax.swing.JOptionPane;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -118,7 +120,14 @@ public class BorrowPage extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        if(!LoginService.getInstance().isLogin()){
+            JOptionPane.showMessageDialog(rootPane, "Login required to borrow a book");
+            return;
+        }
         
+        
+        String selectedBookTitle = jList1.getSelectedValue();
+        Res.getInstance().searchBookByTitle(selectedBookTitle).toList().get(0).requestBorrow();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
