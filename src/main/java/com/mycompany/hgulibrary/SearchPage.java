@@ -137,15 +137,12 @@ public class SearchPage extends javax.swing.JFrame {
         String[] currentBookList;
         String foundBook = null;
         String searchingBook = jTextField1.getText();
-        BookList mylist = new BookList();
         boolean found = false;
         
-        currentBookList = mylist.getBooklist();
-        for (String currentBookList1 : currentBookList) {
-            if (searchingBook.equals(currentBookList1)) {
-                found = true;
-                foundBook = currentBookList1;
-            }
+        
+        if(Res.getInstance().hasBookInfo(searchingBook)){
+            found = true;
+            foundBook = searchingBook;
         }
         
         evt.getActionCommand();
