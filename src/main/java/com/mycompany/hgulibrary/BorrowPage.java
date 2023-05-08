@@ -127,7 +127,13 @@ public class BorrowPage extends javax.swing.JFrame {
         
         
         String selectedBookTitle = jList1.getSelectedValue();
-        Res.getInstance().searchBookByTitle(selectedBookTitle).toList().get(0).requestBorrow();
+        if(Res.getInstance().hasBookInfo(selectedBookTitle)){
+            Res.getInstance().searchBookByTitle(selectedBookTitle).toList().get(0).requestBorrow();
+            JOptionPane.showMessageDialog(rootPane, selectedBookTitle + " book is borrowed");
+        } else{
+            JOptionPane.showMessageDialog(rootPane, selectedBookTitle + " book is not available");
+        }
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

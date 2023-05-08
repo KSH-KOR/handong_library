@@ -17,6 +17,7 @@ public class Res implements Observer{
     private static Res single_instance = null;
     Res(){
         bookList = new ArrayList<BookInfo>();
+        init();
     }
     public static synchronized Res getInstance()
     {
