@@ -1,5 +1,4 @@
 package com.mycompany.hgulibrary;
-import com.mycompany.hgulibrary.LoginInfo;
 import com.mycompany.hgulibrary.MenuPage;
 import javax.swing.JOptionPane;
 
@@ -158,10 +157,9 @@ public class SearchPage extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        LoginInfo info = new LoginInfo();
 //        MenuPage mp = new MenuPage();
         
-        if(info.getisLogin() == false){
+        if(LoginService.getInstance().isLogin() == false){
             LoginPage lp = new LoginPage();
             lp.setVisible(true);
             dispose();

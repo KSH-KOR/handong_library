@@ -59,7 +59,7 @@ public class BookInfo{
              return false; //no available book
          }
          Book bookToBeBorrowed = availableBooks.get(0);
-         HistoryService.getInstance().addNewHistory(LoginInfo.getUserId(), bookToBeBorrowed, null, 7);
+         HistoryService.getInstance().addNewHistory(LoginService.getInstance().getUserId(), bookToBeBorrowed, null, 7);
          bookToBeBorrowed.updateBookState(BookState.borrowed);
          return true;
      }

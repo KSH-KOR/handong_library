@@ -1,5 +1,4 @@
 package com.mycompany.hgulibrary;
-import com.mycompany.hgulibrary.LoginInfo;
 import com.mycompany.hgulibrary.Admin;
 import com.mycompany.hgulibrary.MenuPage;
 import com.mycompany.hgulibrary.User;
