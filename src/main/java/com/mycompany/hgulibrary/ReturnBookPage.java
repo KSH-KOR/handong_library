@@ -88,6 +88,10 @@ public class ReturnBookPage extends javax.swing.JFrame {
             }
         });
         jScrollPane2.setViewportView(jTable1);
+        if (jTable1.getColumnModel().getColumnCount() > 0) {
+            jTable1.getColumnModel().getColumn(5).setResizable(false);
+            jTable1.getColumnModel().getColumn(5).setPreferredWidth(0);
+        }
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -108,10 +112,10 @@ public class ReturnBookPage extends javax.swing.JFrame {
                         .addContainerGap(127, Short.MAX_VALUE)
                         .addComponent(Name, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(113, 113, 113))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 518, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(96, 96, 96))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane2)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -142,7 +146,6 @@ public class ReturnBookPage extends javax.swing.JFrame {
             mp.setVisible(true);
             dispose();
         }
-
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -191,15 +194,12 @@ public class ReturnBookPage extends javax.swing.JFrame {
     }
 
     private void setHistoryList() {
-        String userId = LoginService.getInstance().getUserId();
-        if (userId == null) {
-            JOptionPane.showMessageDialog(rootPane, "Cannot find login info");
-        } else {
-            DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-            Stream<History> histories = HistoryService.getInstance().getBooksNeedToBeReturnedByUserId(userId);
-            histories.forEach(history -> model.addRow(history.getTableItem()));
-            jTable1.getColumnModel().getColumn(5).setWidth(0);
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        int flag = FacadePattern.setHistoryList(rootPane, model);
+        if(flag != 0){
+            return;
         }
+        jTable1.getColumnModel().getColumn(5).setWidth(0);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

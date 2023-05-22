@@ -13,7 +13,7 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 
-public class Res implements Observer{
+public final class Res implements Observer{
     private static Res single_instance = null;
     Res(){
         bookList = new ArrayList<BookInfo>();

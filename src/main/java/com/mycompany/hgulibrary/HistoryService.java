@@ -48,7 +48,7 @@ public class HistoryService {
         return null;
     }
     public Stream<History> getBooksNeedToBeReturnedByUserId(String userId) {
-        return historyList.stream().filter(p -> p.getUserId().equals(userId) && p.getReturnedDate() == null);
+        return getHistoriesByUserId(userId).filter(p-> p.getReturnedDate() == null);
     }
     
     public Stream<History> getHistoriesByUserId(String userId) {

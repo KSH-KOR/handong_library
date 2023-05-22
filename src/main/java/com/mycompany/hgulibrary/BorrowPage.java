@@ -128,20 +128,8 @@ public class BorrowPage extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        if(!LoginService.getInstance().isLogin()){
-            JOptionPane.showMessageDialog(rootPane, "Login required to borrow a book");
-            return;
-        }
-        
-        
         String selectedBookTitle = jList1.getSelectedValue();
-        if(Res.getInstance().hasBookInfo(selectedBookTitle)){
-            Res.getInstance().searchBookByTitle(selectedBookTitle).toList().get(0).requestBorrow();
-            JOptionPane.showMessageDialog(rootPane, selectedBookTitle + " book is borrowed");
-        } else{
-            JOptionPane.showMessageDialog(rootPane, selectedBookTitle + " book is not available");
-        }
-        
+        FacadePattern.borrowBook(rootPane, selectedBookTitle);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
