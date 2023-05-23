@@ -35,13 +35,13 @@ public class FacadePattern {
     }
     
     public static int borrowBook(JRootPane rootPane, String selectedBookTitle){
-        if(!LoginService.getInstance().isLogin()){
+        if(!loginService.isLogin()){
             JOptionPane.showMessageDialog(rootPane, "Login required to borrow a book");
             return 1;
         }
         
-        if(Res.getInstance().hasBookInfo(selectedBookTitle)){
-            Res.getInstance().searchBookByTitle(selectedBookTitle).toList().get(0).requestBorrow();
+        if(res.hasBookInfo(selectedBookTitle)){
+            res.searchBookByTitle(selectedBookTitle).toList().get(0).requestBorrow();
             JOptionPane.showMessageDialog(rootPane, selectedBookTitle + " book is borrowed");
         } else{
             JOptionPane.showMessageDialog(rootPane, selectedBookTitle + " book is not available");
