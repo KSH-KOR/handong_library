@@ -4,6 +4,7 @@
  */
 package com.mycompany.hgulibrary;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -12,12 +13,16 @@ import java.util.List;
  */
 public class ImpleSubject implements Subject_first {
     
-    private final List<Observer_first>observers = null;
+    private final List<Observer_first>observers = new ArrayList<Observer_first>();
 
+    public ImpleSubject(Observer_first observer){
+        this.observers.add(observer);
+    }
+    
     @Override
     public void notifyObserver() {
         System.out.println();
-        for(Observer_first observer : observers){
+        for(Observer_first observer : this.observers){
             observer.update(true);
         }
     }

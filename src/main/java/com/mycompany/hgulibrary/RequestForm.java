@@ -180,8 +180,10 @@ public class RequestForm extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(rootPane, "Book already exists!");
             
             else { 
-                JOptionPane.showMessageDialog(rootPane, "Book request is completed!");            
-                
+//                JOptionPane.showMessageDialog(rootPane, "Book request is completed!");            
+                Observer_second observer_second = new ImpleObserver_second();
+                Subject_second subjectsecond = new ImpleSubject_second(observer_second);
+                subjectsecond.notifyObserver();
             }
                 
             bookname.setText("");

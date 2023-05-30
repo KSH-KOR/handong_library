@@ -13,7 +13,7 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 
-public class Res implements Observer_first{
+public final class Res implements Observer{
     private static Res single_instance = null;
     Res(){
         bookList = new ArrayList<BookInfo>();
@@ -88,7 +88,7 @@ public class Res implements Observer_first{
 
     @Override
     // addBooksToBookInfo가 true면 notify 실행
-    public void update(boolean flag) {
+    public void notify(boolean flag) {
         if (flag) {
             JFrame jFrame = new JFrame();
             JOptionPane.showMessageDialog(jFrame,  "New book is added!");

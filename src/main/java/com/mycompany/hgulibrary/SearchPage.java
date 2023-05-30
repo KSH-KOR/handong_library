@@ -1,4 +1,5 @@
 package com.mycompany.hgulibrary;
+import com.mycompany.hgulibrary.MenuPage;
 import javax.swing.JOptionPane;
 
 /*
