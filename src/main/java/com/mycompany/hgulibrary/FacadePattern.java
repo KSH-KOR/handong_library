@@ -34,6 +34,20 @@ public class FacadePattern {
         histories.forEach(history -> model.addRow(history.getTableItem()));
         return 0;
     }
+    public static int setReservationList(JRootPane rootPane, DefaultTableModel model){
+        String userId = loginService.getUserId();
+        if (userId == null) {
+            JOptionPane.showMessageDialog(rootPane, "Cannot find login info");
+            return 1;
+        }
+        
+        List<Reservation> reservationList = res.getuserReservationList(userId);
+        for(int i=0; i<model.getRowCount(); i++){
+            model.removeRow(i);
+        }
+        reservationList.forEach(reservation -> model.addRow(reservation.getTableItem()));
+        return 0;
+    }
     
     public static int borrowBook(JRootPane rootPane, String selectedBookTitle){
         if(!loginService.isLogin()){

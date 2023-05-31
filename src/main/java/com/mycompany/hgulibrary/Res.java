@@ -108,6 +108,11 @@ public final class Res implements Observer{
         return -1;
     }
     
+    public boolean cancelReservation(String userId, String ISBN){
+        if(reservationList.isEmpty()) return false;
+        return reservationList.remove(getReservation(userId, ISBN));
+    }
+    
     public void popReservation(int idx){
         if(reservationList.size() <= idx) return;
         reservationList.remove(idx);

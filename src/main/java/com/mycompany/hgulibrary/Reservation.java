@@ -4,6 +4,8 @@
  */
 package com.mycompany.hgulibrary;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
@@ -30,5 +32,18 @@ public class Reservation {
     }
     public boolean isISBNEqual(String ISBN){
         return this.ISBN.equals(ISBN);
+    }
+    
+    private String formattedDate(Date date){
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd");  
+        return dateFormat.format(date); 
+    }
+    
+    public Object[] getTableItem(){
+        Object[] result = new Object[3];
+        result[0] = formattedDate(this.reservateDate);
+        result[1] = this.ISBN;
+        result[2] = this.userId;
+        return result;
     }
 }
