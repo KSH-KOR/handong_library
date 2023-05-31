@@ -4,6 +4,7 @@
  */
 package com.mycompany.hgulibrary;
 
+import java.util.List;
 import java.util.stream.Stream;
 import javax.swing.JOptionPane;
 import javax.swing.JRootPane;
@@ -41,10 +42,24 @@ public class FacadePattern {
         }
         
         if(res.hasBookInfo(selectedBookTitle)){
-            res.searchBookByTitle(selectedBookTitle).toList().get(0).requestBorrow();
-            JOptionPane.showMessageDialog(rootPane, selectedBookTitle + " book is borrowed");
+            BookInfo book = res.searchBookByTitle(selectedBookTitle).toList().get(0);
+            if(book.requestBorrow()){
+               JOptionPane.showMessageDialog(rootPane, selectedBookTitle + " book is borrowed");
+            } else{
+                int option = JOptionPane.showConfirmDialog(rootPane, "Do you want to reserve this book?", "No available books", JOptionPane.YES_NO_OPTION, 3);
+                if(option == 0){
+                    if(res.checkIfUserHasReserved(loginService.getUserId(), book.getISBN())){
+                        JOptionPane.showMessageDialog(rootPane, selectedBookTitle + " has been already reserved", "Failed to reserve", JOptionPane.ERROR_MESSAGE);
+                    } else{
+                        res.addNewReservation(loginService.getUserId(), book.getISBN());
+                        JOptionPane.showMessageDialog(rootPane, selectedBookTitle + " is reserved");
+                    }
+                    
+                }
+            }
         } else{
-            JOptionPane.showMessageDialog(rootPane, selectedBookTitle + " book is not available");
+            JOptionPane.showMessageDialog(rootPane, selectedBookTitle + " book is not available", "Failed to borrow", JOptionPane.ERROR_MESSAGE);
+
         }
         
         return 0;

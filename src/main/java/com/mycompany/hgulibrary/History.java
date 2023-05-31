@@ -68,6 +68,7 @@ public class History {
     // If returnedDate is null, set it as current date.
     public void setBookReturned(Date returnedDate){
         setHistory(0, returnedDate != null ? returnedDate : new Date());
+        getBook().updateBookState(BookState.available);
     }
     
     public Book getBook(){
